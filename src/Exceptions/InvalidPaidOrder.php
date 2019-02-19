@@ -12,9 +12,9 @@ class InvalidPaidOrder extends \Exception
      * @param int $code
      * @param Throwable|null $previous
      */
-    public function __construct(string $message = "", int $code = 0, Throwable $previous = null)
+    public function __construct(string $message = null, int $code = 0, Throwable $previous = null)
     {
-        if(empty($message))
+        if(empty($message) || is_null($message))
             $message = "UnitPay config: paidOrder callback not set";
 
         parent::__construct($message, $code, $previous);
