@@ -42,7 +42,7 @@ php artisan vendor:publish --provider="Maksa988\UnitPay\UnitPayServiceProvider"
 Once you have published the configuration files, please edit the config file in `config/unitpay.php`.
 
 - Create an account on [unitpay.ru](http://unitpay.ru)
-- Add your project, copy the `project_id`, `secret_key` and `secret_key_second` params and paste into `config/unitpay.php`
+- Add your project, copy the `public_key`, `secret_key` params and paste into `config/unitpay.php`
 - After the configuration has been published, edit `config/unitpay.php`
 - Set the callback static function for `searchOrder` and `paidOrder`
 - Create route to your controller, and call `UnitPay::handle` method
