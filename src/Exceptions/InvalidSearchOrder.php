@@ -12,7 +12,7 @@ class InvalidSearchOrder extends \Exception
      * @param int $code
      * @param Throwable|null $previous
      */
-    public function __construct(string $message = null, int $code = 0, Throwable $previous = null)
+    public function __construct($message = null, $code = 0, $previous = null)
     {
         if(empty($message) || is_null($message))
             $message = "UnitPay config: searchOrder callback not set";
