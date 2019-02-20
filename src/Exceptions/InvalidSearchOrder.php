@@ -14,8 +14,9 @@ class InvalidSearchOrder extends \Exception
      */
     public function __construct($message = null, $code = 0, $previous = null)
     {
-        if(empty($message) || is_null($message))
-            $message = "UnitPay config: searchOrder callback not set";
+        if (empty($message) || is_null($message)) {
+            $message = 'UnitPay config: searchOrder callback not set';
+        }
 
         parent::__construct($message, $code, $previous);
     }

@@ -3,9 +3,9 @@
 namespace Maksa988\UnitPay\Test;
 
 use Illuminate\Http\Request;
+use Maksa988\UnitPay\Test\Fake\Order;
 use Maksa988\UnitPay\Exceptions\InvalidPaidOrder;
 use Maksa988\UnitPay\Exceptions\InvalidSearchOrder;
-use Maksa988\UnitPay\Test\Fake\Order;
 
 class UnitPayTest extends TestCase
 {

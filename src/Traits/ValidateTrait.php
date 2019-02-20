@@ -24,7 +24,7 @@ trait ValidateTrait
             'params.unitpayId' => 'required',
         ]);
 
-        if($validator->fails()) {
+        if ($validator->fails()) {
             return false;
         }
 
@@ -39,7 +39,7 @@ trait ValidateTrait
     {
         $sign = $this->getSignature($request->get('method'), $request->get('params'), config('unitpay.secret_key'));
 
-        if($request->input('params.signature') != $sign) {
+        if ($request->input('params.signature') != $sign) {
             return false;
         }
 
@@ -52,8 +52,8 @@ trait ValidateTrait
      */
     public function validateOrderFromHandle(Request $request)
     {
-        return ($this->AllowIP($request->ip())
+        return $this->AllowIP($request->ip())
                     && $this->validate($request)
-                    && $this->validateSignature($request));
+                    && $this->validateSignature($request);
     }
 }
