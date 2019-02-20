@@ -2,8 +2,8 @@
 
 namespace Maksa988\UnitPay;
 
-use Illuminate\Http\Request;
 use Illuminate\Support\Str;
+use Illuminate\Http\Request;
 use Maksa988\UnitPay\Traits\CallerTrait;
 use Maksa988\UnitPay\Traits\ValidateTrait;
 
@@ -36,7 +36,7 @@ class UnitPay
         $query = [];
 
         // Public key
-        $url = rtrim(config('unitpay.pay_url'), '/') .'/'. config('unitpay.public_key');
+        $url = rtrim(config('unitpay.pay_url'), '/').'/'.config('unitpay.public_key');
 
         // Amount of payment
         $query['sum'] = $amount;
@@ -51,7 +51,7 @@ class UnitPay
         $query['locale'] = config('unitpay.locale', 'ru');
 
         // Payment description
-        if(! is_null($desc)) {
+        if (! is_null($desc)) {
             $query['desc'] = $desc;
         }
 
@@ -62,7 +62,7 @@ class UnitPay
         $query['signature'] = $this->getFormSignature($order_id, $query['currency'], $desc, $amount, config('unitpay.secret_key'));
 
         // Merge url ang query and return
-        return $url ."?". http_build_query($query);
+        return $url.'?'.http_build_query($query);
     }
 
     /**
@@ -132,14 +132,14 @@ class UnitPay
     public function handle(Request $request)
     {
         // Validate request from UnitPay
-        if(! $this->validateOrderFromHandle($request)) {
+        if (! $this->validateOrderFromHandle($request)) {
             return $this->responseError('validateOrderFromHandle');
         }
 
         // Search and get order
         $order = $this->callSearchOrder($request);
 
-        if(! $order) {
+        if (! $order) {
             return $this->responseError('searchOrder');
         }
 
@@ -154,13 +154,13 @@ class UnitPay
         }
 
         // If order already paid return success
-        if(Str::lower($order['_orderStatus']) === 'paid') {
+        if (Str::lower($order['_orderStatus']) === 'paid') {
             return $this->responseOK('OK');
         }
 
         // PaidOrder - update order info
         // if return false then return error
-        if(! $this->callPaidOrder($request, $order)) {
+        if (! $this->callPaidOrder($request, $order)) {
             return $this->responseError('paidOrder');
         }
 
@@ -174,7 +174,7 @@ class UnitPay
      */
     public function responseError($error)
     {
-        $result['error']['message'] = config('unitpay.errors.'. $error, $error);
+        $result['error']['message'] = config('unitpay.errors.'.$error, $error);
 
         return $result;
     }
