@@ -7,38 +7,26 @@ env:
 matrix:
   fast_finish: true
   include:
-  - php: 5.6
-    env: setup=lowest FRAMEWORK_VERSION=5.3.10 testbench_VERSION=3.3.3
-  - php: 5.6
-    env: setup=stable FRAMEWORK_VERSION=5.3.* testbench_VERSION=3.3.3
-  - php: 5.6
-    env: setup=stable FRAMEWORK_VERSION=5.4.* testbench_VERSION=3.4.*
-  - php: 7.0
-    env: setup=lowest FRAMEWORK_VERSION=5.3.10 testbench_VERSION=3.3.3
-  - php: 7.0
-    env: setup=stable FRAMEWORK_VERSION=5.3.* testbench_VERSION=3.3.3
-  - php: 7.0
-    env: setup=stable FRAMEWORK_VERSION=5.4.* testbench_VERSION=3.4.*
-  - php: 7.1
-    env: setup=lowest FRAMEWORK_VERSION=5.3.10 testbench_VERSION=3.3.3
-  - php: 7.1
-    env: setup=stable FRAMEWORK_VERSION=5.3.* testbench_VERSION=3.3.3
-  - php: 7.1
-    env: setup=stable FRAMEWORK_VERSION=5.4.* testbench_VERSION=3.4.*
-  - php: 7.1
-    env: setup=lowest FRAMEWORK_VERSION=5.5.* testbench_VERSION=3.5.*
-  - php: 7.1
-    env: setup=lowest FRAMEWORK_VERSION=5.6.* testbench_VERSION=3.6.*
-  - php: 7.2
-    env: setup=lowest FRAMEWORK_VERSION=5.4.* testbench_VERSION=3.4.*
-  - php: 7.2
-    env: setup=lowest FRAMEWORK_VERSION=5.5.* testbench_VERSION=3.5.3
-  - php: 7.2
-    env: setup=lowest FRAMEWORK_VERSION=5.6.* testbench_VERSION=3.6.*
-  - php: 7.2
-    env: setup=lowest FRAMEWORK_VERSION=5.7.* testbench_VERSION=3.7.*
-  - php: 7.2
-    env: setup=lowest FRAMEWORK_VERSION=5.8.* testbench_VERSION=3.8.*
+    - php: 7.1
+      env: setup=lowest FRAMEWORK_VERSION=5.5.* testbench_VERSION=3.5.* phpunit_VERSION=~6.0
+    - php: 7.1
+      env: setup=lowest FRAMEWORK_VERSION=5.6.* testbench_VERSION=3.6.* phpunit_VERSION=^7.0
+    - php: 7.2
+      env: setup=lowest FRAMEWORK_VERSION=5.5.* testbench_VERSION=3.5.3 phpunit_VERSION=~6.0
+    - php: 7.2
+      env: setup=lowest FRAMEWORK_VERSION=5.6.* testbench_VERSION=3.6.* phpunit_VERSION=^7.0
+    - php: 7.2
+      env: setup=lowest FRAMEWORK_VERSION=5.7.* testbench_VERSION=3.7.* phpunit_VERSION=^7.0
+    - php: 7.2
+      env: setup=lowest FRAMEWORK_VERSION=5.8.* testbench_VERSION=3.8.* phpunit_VERSION=^8.0
+    - php: 7.3
+      env: setup=lowest FRAMEWORK_VERSION=5.5.* testbench_VERSION=3.5.3 phpunit_VERSION=~6.0
+    - php: 7.3
+      env: setup=lowest FRAMEWORK_VERSION=5.6.* testbench_VERSION=3.6.* phpunit_VERSION=^7.0
+    - php: 7.3
+      env: setup=lowest FRAMEWORK_VERSION=5.7.* testbench_VERSION=3.7.* phpunit_VERSION=^7.0
+    - php: 7.3
+      env: setup=lowest FRAMEWORK_VERSION=5.8.* testbench_VERSION=3.8.* phpunit_VERSION=^8.0
 
 sudo: false
 
@@ -56,6 +44,8 @@ before_install:
   - echo "extension = redis.so" >> ~/.phpenv/versions/$(phpenv version-name)/etc/php.ini
   - composer require "laravel/framework:${FRAMEWORK_VERSION}" --no-update
   - composer require "orchestra/testbench:${testbench_VERSION}" --no-update
+  - composer require "phpunit/phpunit:${phpunit_VERSION}" --no-update
+  - if [[ ${TRAVIS_PHP_VERSION:0:3} == "5.6" ]]; then composer require --dev --no-update phpunit/phpunit 5.7.5; fi
   - travis_retry composer self-update
 
 install:

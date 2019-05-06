@@ -13,7 +13,7 @@ class TestCase extends Orchestra
      */
     protected $unitpay;
 
-    public function setUp()
+    public function setUp(): void
     {
         parent::setUp();
 
