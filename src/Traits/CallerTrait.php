@@ -20,6 +20,7 @@ trait CallerTrait
         if (is_null(config('unitpay.searchOrder'))) {
             throw new InvalidSearchOrder();
         }
+
         return App::call(config('unitpay.searchOrder'), [$request->input('params.account')]);
     }
 
@@ -34,6 +35,7 @@ trait CallerTrait
         if (is_null(config('unitpay.paidOrder'))) {
             throw new InvalidPaidOrder();
         }
+
         return App::call(config('unitpay.paidOrder'), [$order]);
     }
 }
