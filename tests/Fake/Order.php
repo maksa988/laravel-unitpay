@@ -2,8 +2,8 @@
 
 namespace Maksa988\UnitPay\Test\Fake;
 
-use Illuminate\Http\Request;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Http\Request;
 
 class Order extends Model
 {
