@@ -21,7 +21,7 @@ trait CallerTrait
             throw new InvalidSearchOrder();
         }
 
-        return App::call(config('unitpay.searchOrder'), [$request->input('params.account')]);
+        return App::call(config('unitpay.searchOrder'), ['order_id' => $request->input('params.account')]);
     }
 
     /**
@@ -36,6 +36,6 @@ trait CallerTrait
             throw new InvalidPaidOrder();
         }
 
-        return App::call(config('unitpay.paidOrder'), [$order]);
+        return App::call(config('unitpay.paidOrder'), ['order' => $order]);
     }
 }
