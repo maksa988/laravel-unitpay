@@ -2,8 +2,8 @@
 
 namespace Maksa988\UnitPay;
 
-use Illuminate\Support\Str;
 use Illuminate\Http\Request;
+use Illuminate\Support\Str;
 use Maksa988\UnitPay\Traits\CallerTrait;
 use Maksa988\UnitPay\Traits\ValidateTrait;
 
