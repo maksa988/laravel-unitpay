@@ -1,8 +1,8 @@
 # Laravel payment processor package for UnitPay gateway
 
 [![Latest Stable Version](https://poser.pugx.org/maksa988/laravel-unitpay/v/stable)](https://packagist.org/packages/maksa988/laravel-unitpay)
-[![Build Status](https://travis-ci.org/maksa988/laravel-unitpay.svg?branch=master)](https://travis-ci.org/maksa988/laravel-unitpay)
-[![StyleCI](https://github.styleci.io/repos/165841601/shield?branch=master)](https://github.styleci.io/repos/165841601)
+[![Build Status](https://travis-ci.org/maksa988/laravel-unitpay.svg?branch=3.x)](https://travis-ci.org/maksa988/laravel-unitpay)
+[![StyleCI](https://github.styleci.io/repos/165841601/shield?branch=3.x)](https://github.styleci.io/repos/165841601)
 [![CodeFactor](https://www.codefactor.io/repository/github/maksa988/laravel-unitpay/badge)](https://www.codefactor.io/repository/github/maksa988/laravel-unitpay)
 [![Total Downloads](https://img.shields.io/packagist/dt/maksa988/laravel-unitpay.svg?style=flat-square)](https://packagist.org/packages/maksa988/laravel-unitpay)
 [![License](https://poser.pugx.org/maksa988/laravel-unitpay/license)](https://packagist.org/packages/maksa988/laravel-unitpay)
