@@ -2,6 +2,10 @@
 
 All notable changes to `laravel-unitpay` will be documented in this file
 
+## 4.0.0 - 2021-04-02
+
+- support Laravel 8.*
+
 ## 3.0.0 - 2020-05-13
 
 - support Laravel 7.*

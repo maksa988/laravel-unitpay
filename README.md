@@ -11,7 +11,9 @@ Accept payments via UnitPay ([unitpay.ru](https://unitpay.ru/)) using this Larav
 
 - receive payments, adding just the two callbacks
 
-#### Laravel >= 7.*, PHP >= 7.2.5
+#### Laravel >= 7.*, PHP >= 7.3
+
+> To use the package for Laravel 7.* use the [3.x](https://github.com/maksa988/laravel-unitpay/tree/3.x) branch
 
 > To use the package for Laravel 6.* use the [2.x](https://github.com/maksa988/laravel-unitpay/tree/2.x) branch
 
@@ -22,7 +24,7 @@ Accept payments via UnitPay ([unitpay.ru](https://unitpay.ru/)) using this Larav
 Require this package with composer.
 
 ``` bash
-composer require "maksa988/laravel-unitpay:2.*"
+composer require "maksa988/laravel-unitpay"
 ```
 
 If you don't use auto-discovery, add the ServiceProvider to the providers array in `config/app.php`
